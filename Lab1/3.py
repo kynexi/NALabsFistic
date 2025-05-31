@@ -35,7 +35,7 @@ def newton_raphson_system(F, J, x0, tol=1e-6, max_iter=100):
             return x
     raise ValueError("The Newton-Raphson method did not converge.")
 
-def input():
+def u_input():
     num_eq = int(input("Enter the number of equations: "))
     equations = []
     x0 = []
@@ -45,8 +45,9 @@ def input():
     F, J = read_equations(num_eq, equations)
     tol = float(input("Enter the tolerance: "))  #1e-6
 
-x = newton_raphson_system(F, J, x0, tol=tol)
-print("Roots found:", x)
+    x = newton_raphson_system(F, J, x0, tol=tol)
+    print("Roots found:", x)
+
 def test():
     tests=[["2*x[0] + 3*x[1] - 4*x[2] + 5*x[3] - 6*x[4]",
         "-3*x[0] + 4*x[1] + 5*x[2] - 6*x[3] + 7*x[4]",
@@ -81,7 +82,7 @@ def main():
     print("Pick 1 for user input or 2 for test cases")
     choice = int(input("Enter your choice: "))
     if choice == 1:
-        input()
+        u_input()
     elif choice == 2:
         test()
     else:
