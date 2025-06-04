@@ -36,11 +36,13 @@ def rotation_img(img, angle):
 def scale(img, scale_height, scale_width):
     original_height, original_width = img.shape[:2]
     scaled_image = np.zeros((scale_height, scale_width, img.shape[2]), dtype=np.uint8)
+
     for r in range(scale_height):
         for c in range(scale_width):
             scaled_r = int(original_height * r / scale_height)
             scaled_c = int(original_width * c / scale_width)
             scaled_image[r, c] = img[scaled_r, scaled_c]
+            
     return scaled_image
 
 def main():
