@@ -52,7 +52,6 @@ grid = np.zeros((max_y + 1, max_x + 1))
 for (x, y), value in data.items():
     grid[y][x] = value  
 
-# Step 3: Plot heatmap
 plt.figure(figsize=(8, 6))
 plt.imshow(grid, cmap='terrain', origin='lower')
 plt.colorbar(label='Elevation (m)')
