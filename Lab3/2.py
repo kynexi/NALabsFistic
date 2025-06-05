@@ -17,7 +17,7 @@ numbers = np.array([
 eigenvalues, eigenvectors = np.linalg.eig(numbers)
 
 # Identify the dominant eigenvalue and corresponding eigenvector
-influential_index = np.argmax(np.abs(eigenvalues))
+influential_index = np.argmax(np.abs(eigenvalues)) 
 influential_eigenvalue = eigenvalues[influential_index]
 influential_eigenvector = eigenvectors[:, influential_index]
 

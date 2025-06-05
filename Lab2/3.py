@@ -142,3 +142,15 @@ for i, item in enumerate(x_missing):
     x_interp = np.linspace(known_x[0], known_x[-1], num=2 * len(known_x) - 1)
     area = romberg(interpolated_function, known_x[0], item, max_depth=5)
     print(f"Romberg Integration from {known_x[0]} to {item}: {area:.1f} ")
+
+# Final interpolation function based on fully filled data
+known_x = [x for x, y in zip(x1, y1) if y is not None]
+known_y = [y for x, y in zip(x1, y1) if y is not None]
+
+def final_interpolated_function(xi):
+    return cubic_spline_interp(known_x, known_y, xi)
+
+# Romberg integration over the entire interval
+total_area = romberg(final_interpolated_function, known_x[0], known_x[-1], max_depth=5)
+print("====================================================")
+print(f"Romberg Integration over the entire interval ({known_x[0]} to {known_x[-1]}): {total_area:.1f}")
